@@ -10,10 +10,40 @@
 
 def ataque(tipo_att, tipo_def, att, defe):
     efectividad = 0
+    if tipo_att == "Agua" and tipo_def == "Fuego":
+        efectividad = 2
+    elif tipo_att == "Agua" and tipo_def == "Planta":
+        efectividad = 0.5
+    elif tipo_att == "Agua" and tipo_def == "Agua":
+        efectividad = 1
+    elif tipo_att == "Agua" and tipo_def == "Eléctrico":
+        efectividad = 0.5
+    elif tipo_att == "Planta" and tipo_def == "Fuego":
+        efectividad = 0.5
+    elif tipo_att == "Planta" and tipo_def == "Agua":
+        efectividad = 2
+    elif tipo_att == "Planta" and tipo_def == "Planta":
+        efectividad = 0.5
+    elif tipo_att == "Planta" and tipo_def == "Eléctrico":
+        efectividad = 1
+    elif tipo_att == "Fuego" and tipo_def == "Planta":
+        efectividad = 2
+    elif tipo_att == "Fuego" and tipo_def == "Agua":
+        efectividad = 0.5
+    elif tipo_att == "Fuego" and tipo_def == "Fuego":
+        efectividad = 0.5
+    elif tipo_att == "Fuego" and tipo_def == "Eléctrico":
+        efectividad = 1
+    elif tipo_att == "Eléctrico" and tipo_def == "Planta":
+        efectividad = 0.5
+    elif tipo_att == "Eléctrico" and tipo_def == "Agua":
+        efectividad = 2
+    elif tipo_att == "Eléctrico" and tipo_def == "Eléctrico":
+        efectividad = 0.5
+    elif tipo_att == "Eléctrico" and tipo_def == "Fuego":
+        efectividad = 1
 
-    tipos_pokemon = {
-        "Agua" : 1,
-        "Fuego": 2,
-        "Planta": 3,
-        "Electrico": 4
-    }
+    daño = 50 * (att / defe) * efectividad 
+    return daño
+
+print(ataque("Eléctrico", "Fuego", 20, 20))
