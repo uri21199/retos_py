@@ -56,6 +56,7 @@ def aDecimal(numeroBin):
         decimal += (int(i) * 2**(exp))
         exp = exp - 1
     return decimal
+    
 
 print(aDecimal(10100101))
 
